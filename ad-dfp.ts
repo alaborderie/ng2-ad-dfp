@@ -70,9 +70,7 @@ export class AdDFPComponent implements AfterViewInit {
         }
     }
     /**
-     * Show a ionic button asking the user to whitelist this siteweb.
-     * 
-     * If user clicks on "Do not remind me !" this button won't show up again on this device.
+     * Called when an AdBlocker is detected.
      */
     showDetectedAdBlocker() {
         console.log('AdDFPComponent > showDetectedAdBlocker');
