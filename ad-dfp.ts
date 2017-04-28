@@ -2,7 +2,7 @@
  * @author Antoine Laborderie
  */
 import { Input, Component, AfterViewInit, ElementRef } from '@angular/core';
-import { EventsManager } from '../commun/utils';
+import { Events } from 'ionic-angular';
 
 declare var googletag: any;
 declare var isAdBlockEnabled: string;
@@ -20,7 +20,7 @@ export class AdDFPComponent implements AfterViewInit {
     @Input() type: string;
 
     constructor(
-        public _events: EventsManager,
+        public _events: Events,
         private _elementRef: ElementRef) { }
     /**
      * Called after the component has been loaded
