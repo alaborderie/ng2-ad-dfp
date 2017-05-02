@@ -1,0 +1,29 @@
+{
+  "name": "ng2-ad-dfp",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alaborderie/ng2-ad-dfp.git"
+  },
+  "author": {
+    "name": "Antoine Laborderie",
+    "email": "antoine.laborderie@gmail.com"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alaborderie/ng2-ad-dfp.git/issues"
+  },
+  "module": "ng2-ad-dfp.js",
+  "typings": "ng2-ad-dfp.d.ts",
+  "peerDependencies": {
+    "@angular/core": "^4.0.0",
+    "rxjs": "^5.1.0",
+    "zone.js": "^0.8.4"
+  },
+  "dependencies": {
+    "ionic-angular": "^3.1.0"
+  }
+}
