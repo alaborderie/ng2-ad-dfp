@@ -32,8 +32,8 @@
     "@angular/compiler-cli": "2.2.1",
     "@angular/core": "2.2.1",
     "@angular/platform-browser": "2.2.1",
-    "@angular/forms": "2.2.1",
     "@angular/platform-browser-dynamic": "2.2.1",
+    "@angular/forms": "2.2.1",
     "@compodoc/compodoc": "^1.0.0-beta.7",
     "@types/jasmine": "2.5.38",
     "@types/node": "~6.0.60",
@@ -61,6 +61,6 @@
     "zone.js": "^0.8.4"
   },
   "dependencies": {
-    "ionic-angular": "^2.0.0"
+    "ionic-angular": "2.0.0"
   }
 }
