@@ -63,5 +63,6 @@
     "node": ">=6.0.0"
   },
   "dependencies": {
+    "ionic-angular": "3.1.0"
   }
 }
