@@ -7,6 +7,52 @@ It is under MIT License
 
 -----
 
+## Installation
+
+To install this library, run:
+
+```bash
+$ npm install ng2-ad-dfp --save
+```
+
+## Consuming your library
+
+Once you have published your library to npm, you can import your library in any Angular application by running:
+
+```bash
+$ npm install ng2-ad-dfp
+```
+
+and then from your Angular `AppModule`:
+
+```typescript
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppComponent } from './app.component';
+
+// Import your library
+import { AdDFPComponent } from 'ng2-ad-dfp';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+
+    // Specify your library as an import
+    AdDFPComponent
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+Once your library is imported, you can use its components, directives and pipes in your Angular application.
+
+
 Display ad in a web app with a single line of code:
 
 ```typescript
