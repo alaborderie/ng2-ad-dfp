@@ -27,13 +27,13 @@
     "url": "https://github.com/alaborderie/ng2-ad-dfp.git/issues"
   },
   "devDependencies": {
-    "@angular/common": "^4.1.0",
-    "@angular/common": "4.0.2",
-    "@angular/compiler": "^4.0.0",
-    "@angular/compiler-cli": "^4.0.0",
-    "@angular/core": "^4.1.0",
-    "@angular/platform-browser": "^4.0.0",
-    "@angular/platform-browser-dynamic": "^4.0.0",
+    "@angular/common": "2.2.1",
+    "@angular/compiler": "2.2.1",
+    "@angular/compiler-cli": "2.2.1",
+    "@angular/core": "2.2.1",
+    "@angular/platform-browser": "2.2.1",
+    "@angular/forms": "2.2.1",
+    "@angular/platform-browser-dynamic": "2.2.1",
     "@compodoc/compodoc": "^1.0.0-beta.7",
     "@types/jasmine": "2.5.38",
     "@types/node": "~6.0.60",
@@ -61,6 +61,6 @@
     "zone.js": "^0.8.4"
   },
   "dependencies": {
-    "ionic-angular": "3.1.0"
+    "ionic-angular": "^2.0.0"
   }
 }
