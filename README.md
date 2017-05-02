@@ -9,9 +9,13 @@ It is under MIT License
 
 Display ad in a web app with a single line of code:
 
+<<<<<<< HEAD
 ```typescript
 <ad-dfp [type]="'banner'"></ad-dfp>
 ```
+=======
+`<ad-dfp [type]="'banner'"></ad-dfp>`
+>>>>>>> 8ee8f477c9e11984ec8ef434d9bf44e5c94afd66
 
 Settings !
 -----
@@ -41,7 +45,11 @@ AdBlock detector
 -----
 
 The function `detectAdBlocker()` needs a script named "ads.js" included in your <i>index.html</i>
+<<<<<<< HEAD
 ```html
+=======
+```
+>>>>>>> 8ee8f477c9e11984ec8ef434d9bf44e5c94afd66
 <head>
   <script src="assets/script/ads.js"></script>
 </head>
