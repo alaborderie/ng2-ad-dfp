@@ -63,6 +63,8 @@
     "node": ">=6.0.0"
   },
   "dependencies": {
+    "@angular/common": "^4.1.0",
+    "@angular/core": "^4.1.0",
     "ionic-angular": "^3.1.0"
   }
 }
