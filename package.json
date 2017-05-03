@@ -67,8 +67,5 @@
     "zone.js": "^0.8.9"
   },
   "dependencies": {
-    "@angular/forms": "^4.1.0",
-    "angular2": "^2.0.0-beta.21",
-    "ionic-angular": "^3.1.0"
   }
 }
