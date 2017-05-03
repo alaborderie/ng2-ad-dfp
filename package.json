@@ -37,7 +37,6 @@
     "@compodoc/compodoc": "^1.0.0-beta.7",
     "@types/jasmine": "2.5.38",
     "@types/node": "~6.0.60",
-    "angular2": "^2.0.0-beta.21",
     "browserify": "^14.3.0",
     "core-js": "^2.4.1",
     "del": "^2.2.2",
@@ -64,7 +63,7 @@
     "ts-node": "~2.0.0",
     "tslint": "~4.5.0",
     "typescript": "~2.3.2",
-    "zone.js": "^0.8.9"
+    "zone.js": "^0.8.4"
   },
   "dependencies": {
   }
