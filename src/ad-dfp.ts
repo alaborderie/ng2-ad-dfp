@@ -3,6 +3,9 @@
  */
 import { Input, Component, AfterViewInit, ElementRef } from '@angular/core';
 import { Events } from 'ionic-angular';
+import 'zone.js';
+import 'reflect-metadata';
+import 'es6-shim';
 
 declare var googletag: any;
 declare var isAdBlockEnabled: string;

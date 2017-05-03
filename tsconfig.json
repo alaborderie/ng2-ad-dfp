@@ -10,5 +10,6 @@
     ],
     "skipLibCheck": true,
     "types": []
-  }
+  },
+  "compileOnSave": false
 }

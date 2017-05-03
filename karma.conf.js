@@ -1,7 +1,7 @@
 // Karma configuration
 // Generated on Wed May 03 2017 10:47:35 GMT+0200 (CEST)
 
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -10,12 +10,12 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine', 'browserify'],
 
 
     // list of files / patterns to load in the browser
     files: [
-      'src/*.js , src/*.ts , dist/*.js'
+      'tests/*.js'
     ],
 
 
@@ -27,6 +27,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      'tests/*.js': ['browserify']
     },
 
 
