@@ -1,16 +1,7 @@
 {
   "name": "ng2-ad-dfp",
   "version": "0.1.1",
-  "scripts": {
-    "build": "gulp build",
-    "build:watch": "gulp",
-    "docs": "npm run docs:build",
-    "docs:build": "compodoc -p tsconfig.json -n ng2-ad-dfp -d docs --hideGenerator",
-    "docs:serve": "npm run docs:build -- -s",
-    "docs:watch": "npm run docs:build -- -s -w",
-    "lint": "tslint --type-check --project tsconfig.json src/**/*.ts",
-    "test": "tsc && ./node_modules/.bin/karma start karma.conf.js --browsers Firefox --single-run"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/alaborderie/ng2-ad-dfp.git"
@@ -20,53 +11,27 @@
     "email": "antoine.laborderie@gmail.com"
   },
   "keywords": [
-    "angular"
+    "angular",
+    "angular2",
+    "ads",
+    "DoubleClick",
+    "Component",
+    "TypeScript"
   ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/alaborderie/ng2-ad-dfp.git/issues"
   },
-  "devDependencies": {
-    "@angular/common": "^4.1.0",
-    "@angular/compiler": "^4.1.0",
-    "@angular/compiler-cli": "^4.1.0",
-    "@angular/core": "^4.1.0",
-    "@angular/forms": "^4.1.0",
-    "@angular/platform-browser": "^4.1.0",
-    "@angular/platform-browser-dynamic": "^4.1.0",
-    "@compodoc/compodoc": "^1.0.0-beta.7",
-    "@types/jasmine": "2.5.38",
-    "@types/node": "~6.0.60",
-    "browserify": "^14.3.0",
-    "core-js": "^2.4.1",
-    "del": "^2.2.2",
-    "es6-shim": "^0.35.3",
-    "gulp": "^3.9.1",
-    "gulp-rollup": "^2.11.0",
-    "jasmine-core": "~2.5.2",
-    "jasmine-spec-reporter": "~3.2.0",
-    "karma": "^1.4.1",
-    "karma-browserify": "^5.1.1",
-    "karma-chrome-launcher": "~2.0.0",
-    "karma-cli": "~1.0.1",
-    "karma-coverage-istanbul-reporter": "^0.2.0",
-    "karma-firefox-launcher": "^1.0.1",
-    "karma-jasmine": "^1.1.0",
-    "karma-jasmine-html-reporter": "^0.2.2",
-    "node-watch": "^0.5.2",
-    "protractor": "~5.1.0",
-    "reflect-metadata": "0.1.2",
-    "rollup": "^0.41.6",
-    "run-sequence": "^1.2.2",
-    "rxjs": "^5.0.1",
-    "shim": "^0.6.0",
-    "ts-node": "~2.0.0",
-    "tslint": "~4.5.0",
-    "typescript": "~2.3.2",
-    "zone.js": "^0.8.4"
-  },
   "dependencies": {
+    "angular2": "^2.0.0-beta.21",
     "ionic-angular": "^3.1.1",
-    "angular2": "^2.0.0-beta.21"
+    "typescript": "^2.3.2",
+    "@angular/common": "2.2.1",
+    "@angular/compiler": "2.2.1",
+    "@angular/compiler-cli": "2.2.1",
+    "@angular/core": "2.2.1",
+    "@angular/forms": "2.2.1",
+    "@angular/platform-browser": "2.2.1",
+    "@angular/platform-browser-dynamic": "2.2.1"
   }
 }
