@@ -1,6 +1,6 @@
 import { Input, Component, AfterViewInit, OnInit, ElementRef } from '@angular/core';
 import { AlertController } from 'ionic-angular';
-import { Http, Headers, RequestOptions } from '@angular/http';
+import { Http }  from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 
@@ -21,14 +21,12 @@ export class AdDFPComponent implements AfterViewInit, OnInit {
 
     @Input() type: string;
 
-    public settings: number;
-    private headers = new Headers({ 'Accept': 'applications/json' });
-    private options = new RequestOptions({ headers: this.headers });
+    public settings: any;
 
     constructor(
         public _alertCtrl: AlertController,
         private _elementRef: ElementRef,
-        private _http: Http) { }
+        private _http: Http) {}
     /**
      * Called when the component is loading
      */
@@ -97,9 +95,9 @@ export class AdDFPComponent implements AfterViewInit, OnInit {
         console.log('AdDFPComponent > getTag');
         let tag: number;
         if (type == "banner") {
-            tag = settings.banner;
+            tag = settings.tags.banner;
         } else if (type == "inter" || type == "hidden_inter") {
-            tag = settings.inter;
+            tag = settings.tags.inter;
         } else {
             tag = 0
         }
@@ -137,10 +135,10 @@ export class AdDFPComponent implements AfterViewInit, OnInit {
             var mappingBanner = googletag.sizeMapping().
                 addSize([320, 400], [320, 50]).
                 build();
-            gptAdSlots[0] = googletag.defineSlot(`/${settings.network}/1`, [[320, 50], [728, 90], [1024, 120]], `div-gpt-ad-${settings.banner}-0`).
+            gptAdSlots[0] = googletag.defineSlot(`/${settings.network}/1`, [[320, 50], [728, 90], [1024, 120]], `div-gpt-ad-${settings.tags.banner}-0`).
                 defineSizeMapping(mappingBanner).
                 addService(googletag.pubads());
-            gptAdSlots[1] = googletag.defineOutOfPageSlot(`/${settings.network}/2`, `div-gpt-ad-${settings.inter}-0`)
+            gptAdSlots[1] = googletag.defineOutOfPageSlot(`/${settings.network}/2`, `div-gpt-ad-${settings.tags.inter}-0`)
                 .addService(googletag.pubads());
             googletag.pubads().enableSingleRequest();
             googletag.pubads().collapseEmptyDivs();
@@ -148,7 +146,10 @@ export class AdDFPComponent implements AfterViewInit, OnInit {
         });
     }
 
-    getSettings(): Observable<any>{
-        return this._http.get('../settings/settings.json').map(res => res);
+    getSettings(): Observable<any> {
+        console.log('AdDFPComponent > getSettings');
+        let result: any;
+        return this._http.get("ad-dfp/settings.json")
+            .map(function (res) { return res.json(); });
     }
 }
