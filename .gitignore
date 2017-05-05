@@ -2,6 +2,10 @@
 node_modules/*
 npm-debug.log
 
+# Ignore
+.gitignore
+.npmignore
+
 # TypeScript
 src/*.js
 src/*.map
