@@ -1,5 +1,8 @@
 import { Input, Component, AfterViewInit, OnInit, ElementRef } from '@angular/core';
 import { AlertController } from 'ionic-angular';
+import { Http, Headers, RequestOptions } from '@angular/http';
+import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs/Observable';
 
 declare var googletag: any;
 declare var isAdBlockEnabled: string;
@@ -7,7 +10,7 @@ declare var isAdBlockEnabled: string;
 @Component({
     selector: 'ad-dfp',
     template: `
-        <div text-center>
+        <div class="adContainer">
             <div class={{type}}>
 
             </div>
@@ -18,22 +21,27 @@ export class AdDFPComponent implements AfterViewInit, OnInit {
 
     @Input() type: string;
 
+    public settings: number;
+    private headers = new Headers({ 'Accept': 'applications/json' });
+    private options = new RequestOptions({ headers: this.headers });
 
     constructor(
         public _alertCtrl: AlertController,
-        private _elementRef: ElementRef) { }
+        private _elementRef: ElementRef,
+        private _http: Http) { }
     /**
      * Called when the component is loading
      */
     ngOnInit() {
-        this.defineAds(this.getTag(this.type), googletag);
+        this.settings = this.getSettings();
+        this.defineAds(this.settings, googletag);
     }
     /**
      * Called after the component has been loaded
      */
     ngAfterViewInit() {
         console.log('AdDFPComponent > ngAfterViewInit');
-        let tag: number = this.getTag(this.type);
+        let tag: number = this.getTag(this.type, this.settings);
         console.log('tag = ' + tag);
         /* Uncomment to add AdBlockDetector feature */
         // this.detectAdBlocker();
@@ -85,15 +93,15 @@ export class AdDFPComponent implements AfterViewInit, OnInit {
      * @return tag The tag corresponding to the type of ad
      * 
      */
-    getTag(type: string): number {
+    getTag(type: string, settings: any): number {
         console.log('AdDFPComponent > getTag');
         let tag: number;
         if (type == "banner") {
-            // tag = XXXXXX;
+            tag = settings.banner;
         } else if (type == "inter" || type == "hidden_inter") {
-            // tag = XXXXXX;
+            tag = settings.inter;
         } else {
-            // tag = XXXXXX
+            tag = 0
         }
         return tag;
     }
@@ -119,7 +127,7 @@ export class AdDFPComponent implements AfterViewInit, OnInit {
      * @param googletagSettings User's settings concerning ads (tag is different for each school)
      * @param googletag The googletag declared by google's script included in index.html
      */
-    defineAds(tag: number, googletag: any): void {
+    defineAds(settings: any, googletag: any): void {
         var googletag = googletag || {};
         googletag.cmd = googletag.cmd || [];
         var gptAdSlots = [];
@@ -129,15 +137,18 @@ export class AdDFPComponent implements AfterViewInit, OnInit {
             var mappingBanner = googletag.sizeMapping().
                 addSize([320, 400], [320, 50]).
                 build();
-            /* Replace XXXXXX With you informations */
-            gptAdSlots[0] = googletag.defineSlot(`/XXXXXX/1`, [[320, 50], [728, 90], [1024, 120]], `div-gpt-ad-${tag}-0`).
+            gptAdSlots[0] = googletag.defineSlot(`/${settings.network}/1`, [[320, 50], [728, 90], [1024, 120]], `div-gpt-ad-${settings.banner}-0`).
                 defineSizeMapping(mappingBanner).
                 addService(googletag.pubads());
-            gptAdSlots[1] = googletag.defineOutOfPageSlot(`/XXXXXX/2`, `div-gpt-ad-${tag}-0`)
+            gptAdSlots[1] = googletag.defineOutOfPageSlot(`/${settings.network}/2`, `div-gpt-ad-${settings.inter}-0`)
                 .addService(googletag.pubads());
             googletag.pubads().enableSingleRequest();
             googletag.pubads().collapseEmptyDivs();
             googletag.enableServices();
         });
+    }
+
+    getSettings(): Observable<any>{
+        return this._http.get('../settings/settings.json').map(res => res);
     }
 }
