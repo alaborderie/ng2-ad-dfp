@@ -8,6 +8,8 @@ docs/*
 # *.map
 # *.d.ts
 
+.gitignore
+
 # JetBrains
 .idea
 .project
