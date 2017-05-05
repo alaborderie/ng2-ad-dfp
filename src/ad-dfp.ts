@@ -1,8 +1,9 @@
 import { Input, Component, AfterViewInit, OnInit, ElementRef } from '@angular/core';
 import { AlertController } from 'ionic-angular';
-import { Http }  from '@angular/http';
+import { BaseRequestOptions, Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
+import * as settings from '../settings/settings.json';
 
 declare var googletag: any;
 declare var isAdBlockEnabled: string;
@@ -26,12 +27,14 @@ export class AdDFPComponent implements AfterViewInit, OnInit {
     constructor(
         public _alertCtrl: AlertController,
         private _elementRef: ElementRef,
-        private _http: Http) {}
+        private _http: Http) { }
     /**
      * Called when the component is loading
      */
     ngOnInit() {
+        console.log('AdDFPComponent > ngOnInit');
         this.settings = this.getSettings();
+        console.log(JSON.stringify(this.settings));
         this.defineAds(this.settings, googletag);
     }
     /**
@@ -148,8 +151,7 @@ export class AdDFPComponent implements AfterViewInit, OnInit {
 
     getSettings(): Observable<any> {
         console.log('AdDFPComponent > getSettings');
-        let result: any;
-        return this._http.get("ad-dfp/settings.json")
-            .map(function (res) { return res.json(); });
+        return this._http.get('ad-dfp/settings.json')
+            .map(response => response.json());
     }
 }

@@ -20,7 +20,9 @@ var AdDFPComponent = (function () {
         this._http = _http;
     }
     AdDFPComponent.prototype.ngOnInit = function () {
+        console.log('AdDFPComponent > ngOnInit');
         this.settings = this.getSettings();
+        console.log(JSON.stringify(this.settings));
         this.defineAds(this.settings, googletag);
     };
     AdDFPComponent.prototype.ngAfterViewInit = function () {
@@ -92,9 +94,8 @@ var AdDFPComponent = (function () {
     };
     AdDFPComponent.prototype.getSettings = function () {
         console.log('AdDFPComponent > getSettings');
-        var result;
-        return this._http.get("ad-dfp/settings.json")
-            .map(function (res) { return res.json(); });
+        return this._http.get('ad-dfp/settings.json')
+            .map(function (response) { return response.json(); });
     };
     return AdDFPComponent;
 }());
