@@ -12,5 +12,8 @@
   },
   "files": [
     "src/ad-dfp.ts"
+  ],
+  "exclude": [
+    "nodes_modules/*"
   ]
 }

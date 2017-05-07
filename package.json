@@ -53,10 +53,12 @@
     "@angular/compiler-cli": "2.2.1",
     "@angular/core": "2.2.1",
     "@angular/forms": "2.2.1",
+    "@angular/http": "2.2.1",
     "@angular/platform-browser": "2.2.1",
     "@angular/platform-browser-dynamic": "2.2.1",
     "angular2": "^2.0.0-beta.21",
-    "ionic-angular": "^3.1.1"
+    "ionic-angular": "^3.1.1",
+    "rxjs": "^5.3.1"
   },
   "main": "main.js",
   "description": "Angular 2 TypeScript Component ======================================",
@@ -93,5 +95,5 @@
     "url": "git+https://github.com/alaborderie/ng2-ad-dfp.git"
   },
   "scripts": {},
-  "version": "1.0.0"
+  "version": "0.1.2"
 }

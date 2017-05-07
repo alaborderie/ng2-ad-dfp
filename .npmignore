@@ -8,7 +8,7 @@ docs/*
 # *.map
 # *.d.ts
 
-.gitignore
+node_modules
 
 # JetBrains
 .idea
