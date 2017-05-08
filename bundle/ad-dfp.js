@@ -116,7 +116,8 @@ __decorate([
 AdDFPComponent = __decorate([
     core_1.Component({
         selector: 'ad-dfp',
-        template: "\n        <div class=\"adContainer\">\n            <div class={{type}}>\n\n            </div>\n        </div>\n    "
+        template: "\n        <div class=\"adContainer\">\n            <div class={{type}}>\n\n            </div>\n        </div>\n    ",
+        style: [".adContainer { text-align: center; }"]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof ionic_angular_1.AlertController !== "undefined" && ionic_angular_1.AlertController) === "function" && _a || Object, typeof (_b = typeof core_1.ElementRef !== "undefined" && core_1.ElementRef) === "function" && _b || Object, typeof (_c = typeof http_1.Http !== "undefined" && http_1.Http) === "function" && _c || Object])
 ], AdDFPComponent);
