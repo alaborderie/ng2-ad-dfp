@@ -129,7 +129,7 @@ var adsFunction = function() {
 
 OR
 
-̀̀̀```typescript
+```typescript
 <ad-dfp [type]="'inter'"></ad-dfp>
 ```
 
