@@ -61,7 +61,7 @@ It should look like this:
   },
   "ID": {
     "banner": " ",
-    "inter": " ",
+    "inter": " "
   },
   "mapping": {
     "mobile": {
@@ -74,7 +74,7 @@ It should look like this:
     },
     "desktop": {
       "width": 1024,
-      "height": 120,
+      "height": 120
     }
   },
   "adBlockDetector": false
