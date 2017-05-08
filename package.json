@@ -47,7 +47,8 @@
   "bugs": {
     "url": "https://github.com/alaborderie/ng2-ad-dfp.git/issues"
   },
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "@angular/common": "2.2.1",
     "@angular/compiler": "2.2.1",
     "@angular/compiler-cli": "2.2.1",
