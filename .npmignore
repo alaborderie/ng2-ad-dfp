@@ -34,3 +34,6 @@ Desktop.ini
 # Library files
 src/*
 build/*
+
+# Configs
+tsconfig.json

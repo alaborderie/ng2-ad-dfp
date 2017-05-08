@@ -96,7 +96,7 @@ var AdDFPComponent = (function () {
     };
     AdDFPComponent.prototype.getSettings = function () {
         console.log('AdDFPComponent > getSettings');
-        return this._http.get('settings/settings.json')
+        return this._http.get('./settings/settings.json')
             .map(function (response) { return response.json(); });
     };
     return AdDFPComponent;

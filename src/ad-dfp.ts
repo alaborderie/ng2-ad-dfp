@@ -160,7 +160,7 @@ export class AdDFPComponent implements OnInit {
 
     getSettings(): Observable<any> {
         console.log('AdDFPComponent > getSettings');
-        return this._http.get('settings/settings.json')
+        return this._http.get('./settings/settings.json')
             .map(response => response.json());
     }
 }
