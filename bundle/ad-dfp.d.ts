@@ -1,9 +1,9 @@
-import { AfterViewInit, OnInit, ElementRef } from '@angular/core';
+import { OnInit, ElementRef } from '@angular/core';
 import { AlertController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
-export declare class AdDFPComponent implements AfterViewInit, OnInit {
+export declare class AdDFPComponent implements OnInit {
     _alertCtrl: AlertController;
     private _elementRef;
     private _http;

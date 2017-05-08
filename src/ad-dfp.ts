@@ -1,9 +1,8 @@
-import { Input, Component, AfterViewInit, OnInit, ElementRef } from '@angular/core';
+import { Input, Component, OnInit, ElementRef } from '@angular/core';
 import { AlertController } from 'ionic-angular';
 import { BaseRequestOptions, Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
-import * as settings from '../settings/settings.json';
 
 declare var googletag: any;
 declare var isAdBlockEnabled: string;
@@ -18,7 +17,7 @@ declare var isAdBlockEnabled: string;
         </div>
     `
 })
-export class AdDFPComponent implements AfterViewInit, OnInit {
+export class AdDFPComponent implements OnInit {
 
     @Input() type: string;
 
@@ -33,25 +32,35 @@ export class AdDFPComponent implements AfterViewInit, OnInit {
      */
     ngOnInit() {
         console.log('AdDFPComponent > ngOnInit');
-        this.settings = this.getSettings();
-        console.log(JSON.stringify(this.settings));
-        this.defineAds(this.settings, googletag);
+        // this.settings = this.getSettings();
+        this.getSettings().subscribe(data => {
+            this.settings = data;
+            console.log(JSON.stringify(this.settings));
+            this.defineAds(this.settings, googletag);
+            let tag: number = this.getTag(this.type, this.settings);
+            console.log('tag = ' + tag);
+            if (this.type === "hiddent_inter") {
+
+            } else {
+                this.displayAd(tag);
+            }
+        });
     }
     /**
      * Called after the component has been loaded
      */
     ngAfterViewInit() {
-        console.log('AdDFPComponent > ngAfterViewInit');
-        let tag: number = this.getTag(this.type, this.settings);
-        console.log('tag = ' + tag);
-        /* Uncomment to add AdBlockDetector feature */
-        // this.detectAdBlocker();
-        // console.log('AdDFPComponent > ngAfterViewInit > detectAdBlocker finished');
-        if (this.type === "hidden_inter") {
+    //     console.log('AdDFPComponent > ngAfterViewInit');
+    //     let tag: number = this.getTag(this.type, this.settings);
+    //     console.log('tag = ' + tag);
+    //     /* Uncomment to add AdBlockDetector feature */
+    //     // this.detectAdBlocker();
+    //     // console.log('AdDFPComponent > ngAfterViewInit > detectAdBlocker finished');
+    //     if (this.type === "hidden_inter") {
 
-        } else {
-            this.displayAd(tag);
-        }
+    //     } else {
+    //         this.displayAd(tag);
+    //     }
     }
     /**
      * Removes component on page exit
@@ -151,7 +160,7 @@ export class AdDFPComponent implements AfterViewInit, OnInit {
 
     getSettings(): Observable<any> {
         console.log('AdDFPComponent > getSettings');
-        return this._http.get('ad-dfp/settings.json')
+        return this._http.get('settings/settings.json')
             .map(response => response.json());
     }
 }

@@ -20,20 +20,22 @@ var AdDFPComponent = (function () {
         this._http = _http;
     }
     AdDFPComponent.prototype.ngOnInit = function () {
+        var _this = this;
         console.log('AdDFPComponent > ngOnInit');
-        this.settings = this.getSettings();
-        console.log(JSON.stringify(this.settings));
-        this.defineAds(this.settings, googletag);
+        this.getSettings().subscribe(function (data) {
+            _this.settings = data;
+            console.log(JSON.stringify(_this.settings));
+            _this.defineAds(_this.settings, googletag);
+            var tag = _this.getTag(_this.type, _this.settings);
+            console.log('tag = ' + tag);
+            if (_this.type === "hiddent_inter") {
+            }
+            else {
+                _this.displayAd(tag);
+            }
+        });
     };
     AdDFPComponent.prototype.ngAfterViewInit = function () {
-        console.log('AdDFPComponent > ngAfterViewInit');
-        var tag = this.getTag(this.type, this.settings);
-        console.log('tag = ' + tag);
-        if (this.type === "hidden_inter") {
-        }
-        else {
-            this.displayAd(tag);
-        }
     };
     AdDFPComponent.prototype.ngOnDestroy = function () {
         console.log('AdDFPComponent > ngOnDestroy');
@@ -94,7 +96,7 @@ var AdDFPComponent = (function () {
     };
     AdDFPComponent.prototype.getSettings = function () {
         console.log('AdDFPComponent > getSettings');
-        return this._http.get('ad-dfp/settings.json')
+        return this._http.get('settings/settings.json')
             .map(function (response) { return response.json(); });
     };
     return AdDFPComponent;
@@ -108,9 +110,8 @@ AdDFPComponent = __decorate([
         selector: 'ad-dfp',
         template: "\n        <div class=\"adContainer\">\n            <div class={{type}}>\n\n            </div>\n        </div>\n    "
     }),
-    __metadata("design:paramtypes", [ionic_angular_1.AlertController,
-        core_1.ElementRef,
-        http_1.Http])
+    __metadata("design:paramtypes", [typeof (_a = typeof ionic_angular_1.AlertController !== "undefined" && ionic_angular_1.AlertController) === "function" && _a || Object, typeof (_b = typeof core_1.ElementRef !== "undefined" && core_1.ElementRef) === "function" && _b || Object, typeof (_c = typeof http_1.Http !== "undefined" && http_1.Http) === "function" && _c || Object])
 ], AdDFPComponent);
 exports.AdDFPComponent = AdDFPComponent;
+var _a, _b, _c;
 //# sourceMappingURL=ad-dfp.js.map
