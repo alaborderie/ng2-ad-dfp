@@ -16,7 +16,8 @@ declare var adsFunction: any;
 
             </div>
         </div>
-    `
+    `,
+    style: [`.adContainer { text-align: center; }`]
 })
 export class AdDFPComponent implements OnInit {
 
