@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Observable';
 
 declare var googletag: any;
 declare var isAdBlockEnabled: string;
+declare var adsFunction: any;
 
 @Component({
     selector: 'ad-dfp',
@@ -32,14 +33,16 @@ export class AdDFPComponent implements OnInit {
      */
     ngOnInit() {
         console.log('AdDFPComponent > ngOnInit');
-        // this.settings = this.getSettings();
         this.getSettings().subscribe(data => {
             this.settings = data;
             console.log(JSON.stringify(this.settings));
             this.defineAds(this.settings, googletag);
             let tag: number = this.getTag(this.type, this.settings);
             console.log('tag = ' + tag);
-            if (this.type === "hiddent_inter") {
+            if (this.settings.adBlockDetector) {
+                this.detectAdBlocker();
+            }
+            if (this.type === "hidden_inter") {
 
             } else {
                 this.displayAd(tag);
@@ -50,31 +53,12 @@ export class AdDFPComponent implements OnInit {
      * Called after the component has been loaded
      */
     ngAfterViewInit() {
-    //     console.log('AdDFPComponent > ngAfterViewInit');
-    //     let tag: number = this.getTag(this.type, this.settings);
-    //     console.log('tag = ' + tag);
-    //     /* Uncomment to add AdBlockDetector feature */
-    //     // this.detectAdBlocker();
-    //     // console.log('AdDFPComponent > ngAfterViewInit > detectAdBlocker finished');
-    //     if (this.type === "hidden_inter") {
-
-    //     } else {
-    //         this.displayAd(tag);
-    //     }
     }
     /**
      * Removes component on page exit
      */
     ngOnDestroy() {
         console.log('AdDFPComponent > ngOnDestroy');
-        /* Uncomment if you have jquery */
-        /* Removes interstitial */
-        // $("#mobile_inters").remove();
-        // $("#mobile_inters_holder").remove();
-
-        /* Removes banner */
-        // $("#google_image_div").remove();
-
     }
     /**
      * Detects if an ad blocker is used
@@ -83,7 +67,7 @@ export class AdDFPComponent implements OnInit {
      */
     detectAdBlocker(): void {
         console.log('AdDFPComponent > detectAdBlocker');
-        if (typeof isAdBlockEnabled === 'undefined' && localStorage.getItem('AdBlockUser') !== 'true') {
+        if (typeof isAdBlockEnabled === 'undefined') {
             this.showDetectedAdBlocker();
         }
     }
@@ -94,7 +78,9 @@ export class AdDFPComponent implements OnInit {
      */
     showDetectedAdBlocker(): void {
         console.log('AdDFPComponent > showDetectedAdBlocker');
-        /* Do whatever you want */
+        if (typeof adsFunction !== 'undefined') {
+            adsFunction();
+        }
     }
     /**
      * This function returns the google tag needed corresponding to the type of the ad
@@ -145,12 +131,14 @@ export class AdDFPComponent implements OnInit {
         googletag.cmd.push(function () {
             console.log('AdDFPComponent > ngOnInit > push');
             var mappingBanner = googletag.sizeMapping().
-                addSize([320, 400], [320, 50]).
+                addSize([320, 400], [settings.mapping.mobile.width, settings.mapping.mobile.height]).
+                addSize([728, 400], [settings.mapping.tablet.width, settings.mapping.tablet.height]).
+                addSize([1024, 400], [settings.mapping.desktop.width, settings.mapping.desktop.height]).
                 build();
-            gptAdSlots[0] = googletag.defineSlot(`/${settings.network}/1`, [[320, 50], [728, 90], [1024, 120]], `div-gpt-ad-${settings.tags.banner}-0`).
+            gptAdSlots[0] = googletag.defineSlot(`/${settings.network}/${settings.ID.banner}`, [[settings.mapping.mobile.width, settings.mapping.mobile.height], [settings.mapping.tablet.width, settings.mapping.tablet.height], [settings.mapping.desktop.width, settings.mapping.desktop.height]], `div-gpt-ad-${settings.tags.banner}-0`).
                 defineSizeMapping(mappingBanner).
                 addService(googletag.pubads());
-            gptAdSlots[1] = googletag.defineOutOfPageSlot(`/${settings.network}/2`, `div-gpt-ad-${settings.tags.inter}-0`)
+            gptAdSlots[1] = googletag.defineOutOfPageSlot(`/${settings.network}/${settings.ID.inter}`, `div-gpt-ad-${settings.tags.inter}-0`)
                 .addService(googletag.pubads());
             googletag.pubads().enableSingleRequest();
             googletag.pubads().collapseEmptyDivs();
@@ -160,7 +148,7 @@ export class AdDFPComponent implements OnInit {
 
     getSettings(): Observable<any> {
         console.log('AdDFPComponent > getSettings');
-        return this._http.get('./settings/settings.json')
+        return this._http.get('/assets/settings/settings.json')
             .map(response => response.json());
     }
 }

@@ -28,7 +28,10 @@ var AdDFPComponent = (function () {
             _this.defineAds(_this.settings, googletag);
             var tag = _this.getTag(_this.type, _this.settings);
             console.log('tag = ' + tag);
-            if (_this.type === "hiddent_inter") {
+            if (_this.settings.adBlockDetector) {
+                _this.detectAdBlocker();
+            }
+            if (_this.type === "hidden_inter") {
             }
             else {
                 _this.displayAd(tag);
@@ -42,12 +45,15 @@ var AdDFPComponent = (function () {
     };
     AdDFPComponent.prototype.detectAdBlocker = function () {
         console.log('AdDFPComponent > detectAdBlocker');
-        if (typeof isAdBlockEnabled === 'undefined' && localStorage.getItem('AdBlockUser') !== 'true') {
+        if (typeof isAdBlockEnabled === 'undefined') {
             this.showDetectedAdBlocker();
         }
     };
     AdDFPComponent.prototype.showDetectedAdBlocker = function () {
         console.log('AdDFPComponent > showDetectedAdBlocker');
+        if (typeof adsFunction !== 'undefined') {
+            adsFunction();
+        }
     };
     AdDFPComponent.prototype.getTag = function (type, settings) {
         console.log('AdDFPComponent > getTag');
@@ -82,12 +88,14 @@ var AdDFPComponent = (function () {
         googletag.cmd.push(function () {
             console.log('AdDFPComponent > ngOnInit > push');
             var mappingBanner = googletag.sizeMapping().
-                addSize([320, 400], [320, 50]).
+                addSize([320, 400], [settings.mapping.mobile.width, settings.mapping.mobile.height]).
+                addSize([728, 400], [settings.mapping.tablet.width, settings.mapping.tablet.height]).
+                addSize([1024, 400], [settings.mapping.desktop.width, settings.mapping.desktop.height]).
                 build();
-            gptAdSlots[0] = googletag.defineSlot("/" + settings.network + "/1", [[320, 50], [728, 90], [1024, 120]], "div-gpt-ad-" + settings.tags.banner + "-0").
+            gptAdSlots[0] = googletag.defineSlot("/" + settings.network + "/" + settings.ID.banner, [[settings.mapping.mobile.width, settings.mapping.mobile.height], [settings.mapping.tablet.width, settings.mapping.tablet.height], [settings.mapping.desktop.width, settings.mapping.desktop.height]], "div-gpt-ad-" + settings.tags.banner + "-0").
                 defineSizeMapping(mappingBanner).
                 addService(googletag.pubads());
-            gptAdSlots[1] = googletag.defineOutOfPageSlot("/" + settings.network + "/2", "div-gpt-ad-" + settings.tags.inter + "-0")
+            gptAdSlots[1] = googletag.defineOutOfPageSlot("/" + settings.network + "/" + settings.ID.inter, "div-gpt-ad-" + settings.tags.inter + "-0")
                 .addService(googletag.pubads());
             googletag.pubads().enableSingleRequest();
             googletag.pubads().collapseEmptyDivs();
@@ -96,7 +104,7 @@ var AdDFPComponent = (function () {
     };
     AdDFPComponent.prototype.getSettings = function () {
         console.log('AdDFPComponent > getSettings');
-        return this._http.get('./settings/settings.json')
+        return this._http.get('/assets/settings/settings.json')
             .map(function (response) { return response.json(); });
     };
     return AdDFPComponent;

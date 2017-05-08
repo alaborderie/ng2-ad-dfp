@@ -34,3 +34,4 @@ Desktop.ini
 
 # Build files
 dist/*
+bundle/*
