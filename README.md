@@ -15,7 +15,7 @@ $ npm install ng2-ad-dfp --save
 
 and then from your Angular `AppModule`:
 
-```typescript
+```ts
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -121,13 +121,13 @@ var adsFunction = function() {
 
 ## Display ad in a web app with a single line of code
 
-```typescript
+```ts
 <ad-dfp [type]="'banner'"></ad-dfp>
 ```
 
 OR
 
-```typescript
+```ts
 <ad-dfp [type]="'inter'"></ad-dfp>
 ```
 
