@@ -1,9 +1,7 @@
-Angular 2 TypeScript Component
-======================================
+# Angular 2 Component
 
-This component was written by Antoine Laborderie working at Lekooa
-
-It is under MIT License
+This component creates and displays ads for DoubleClick for Publishers in your Angular2 project.
+All you have to do is install it, include it in your app.module.ts, define your settings in a json file, and insert a ` <ad-dfp [type]="'banner'"></ad-dfp> ` in any page.html you want.
 
 -----
 
@@ -133,4 +131,8 @@ OR
 <ad-dfp [type]="'inter'"></ad-dfp>
 ```
 
-This is still a work in progress !
+That's it ! You're displaying DFP ads !
+
+## License
+
+This component is under MIT License
