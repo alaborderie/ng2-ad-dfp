@@ -10,13 +10,12 @@ declare var adsFunction: any;
 @Component({
     selector: 'ad-dfp',
     template: `
-        <div class="adContainer">
+        <div class="adContainer" style="text-align: center;">
             <div class={{type}}>
 
             </div>
         </div>
-    `,
-    style: [`.adContainer { text-align: center; }`]
+    `
 })
 export class AdDFPComponent implements OnInit {
 
@@ -122,7 +121,12 @@ export class AdDFPComponent implements OnInit {
             googletag.enableServices();
         });
     }
-
+    /**
+     * Returns an observable by Get HTTP protocol on a json file
+     * The returned observable can get data from a json file
+     * 
+     * @return Observable to get data from settings.json
+     */
     getSettings(): Observable<any> {
         return this._http.get('/assets/settings/settings.json')
             .map(response => response.json());

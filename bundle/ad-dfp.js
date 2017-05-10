@@ -97,8 +97,7 @@ __decorate([
 AdDFPComponent = __decorate([
     core_1.Component({
         selector: 'ad-dfp',
-        template: "\n        <div class=\"adContainer\">\n            <div class={{type}}>\n\n            </div>\n        </div>\n    ",
-        style: [".adContainer { text-align: center; }"]
+        template: "\n        <div class=\"adContainer\" style=\"text-align: center;\">\n            <div class={{type}}>\n\n            </div>\n        </div>\n    "
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof core_1.ElementRef !== "undefined" && core_1.ElementRef) === "function" && _a || Object, typeof (_b = typeof http_1.Http !== "undefined" && http_1.Http) === "function" && _b || Object])
 ], AdDFPComponent);
