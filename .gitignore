@@ -35,3 +35,6 @@ Desktop.ini
 # Build files
 dist/*
 bundle/*
+
+/compiled
+*.metadata.json

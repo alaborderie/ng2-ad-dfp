@@ -35,5 +35,4 @@ Desktop.ini
 src/*
 build/*
 
-# Configs
-tsconfig.json
+/compiled

@@ -1,1 +1,1 @@
-export * from './bundle/ad-dfp';
+export { AdDFPComponent } from './bundle/ad-dfp';
