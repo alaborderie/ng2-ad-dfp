@@ -63,14 +63,18 @@ class AdDFPComponent {
                 addSize([728, 400], [settings.mapping.tablet.width, settings.mapping.tablet.height]).
                 addSize([1024, 400], [settings.mapping.desktop.width, settings.mapping.desktop.height]).
                 build();
-            gptAdSlots[0] = googletag.defineSlot(`/${settings.network}/${settings.ID.banner}`, [[settings.mapping.mobile.width, settings.mapping.mobile.height], [settings.mapping.tablet.width, settings.mapping.tablet.height], [settings.mapping.desktop.width, settings.mapping.desktop.height]], `div-gpt-ad-${settings.tags.banner}-0`).
-                defineSizeMapping(mappingBanner).
-                addService(googletag.pubads());
-            gptAdSlots[1] = googletag.defineOutOfPageSlot(`/${settings.network}/${settings.ID.inter}`, `div-gpt-ad-${settings.tags.inter}-0`)
-                .addService(googletag.pubads());
-            googletag.pubads().enableSingleRequest();
-            googletag.pubads().collapseEmptyDivs();
-            googletag.enableServices();
+            if (settings.ID.banner !== 0) {
+                gptAdSlots[0] = googletag.defineSlot(`/${settings.network}/${settings.ID.banner}`, [[settings.mapping.mobile.width, settings.mapping.mobile.height], [settings.mapping.tablet.width, settings.mapping.tablet.height], [settings.mapping.desktop.width, settings.mapping.desktop.height]], `div-gpt-ad-${settings.tags.banner}-0`).
+                    defineSizeMapping(mappingBanner).
+                    addService(googletag.pubads());
+            }
+            if (settings.ID.inter !== 0) {
+                gptAdSlots[1] = googletag.defineOutOfPageSlot(`/${settings.network}/${settings.ID.inter}`, `div-gpt-ad-${settings.tags.inter}-0`)
+                    .addService(googletag.pubads());
+                googletag.pubads().enableSingleRequest();
+                googletag.pubads().collapseEmptyDivs();
+                googletag.enableServices();
+            }
         });
     }
     getSettings() {
