@@ -132,7 +132,7 @@ export class AdDFPComponent implements OnInit {
      * @return Observable to get data from settings.json
      */
     getSettings(): Observable<any> {
-        return this._http.get('/assets/settings/settings.json')
+        return this._http.get('assets/settings/settings.json')
             .map(response => response.json());
     }
 }
