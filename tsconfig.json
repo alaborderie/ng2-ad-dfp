@@ -2,7 +2,7 @@
   "compilerOptions": {
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es5",
+    "target": "es6",
     "module": "commonjs",
     "moduleResolution": "node",
     "removeComments": true,
@@ -11,12 +11,12 @@
     "declaration": true
   },
   "angularCompilerOptions": {
-    "genDir": "compiled"
+    "skipTemplateCodegen": true
   },
   "files": [
     "src/ad-dfp.ts"
   ],
   "exclude": [
-    "nodes_modules/*"
+    "node_modules/*"
   ]
 }
