@@ -5,6 +5,10 @@ All you have to do is install it, include it in your app.module.ts, define your 
 
 -----
 
+Check my [article](https://medium.com/@antoine.laborderie/doubleclick-ads-in-angular-2-based-project-bbd53b425494) on Medium about this component !
+
+-----
+
 ## Installation
 
 To install this library, run:
