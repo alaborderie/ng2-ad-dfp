@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/ad-dfp.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">src/</a> ad-dfp.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">29.09% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>16/55</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/26</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">7.69% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/13</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">27.78% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>15/54</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span></td><td class="text"><pre class="prettyprint lang-js">import { Input, Component, OnInit, ElementRef } from '@angular/core';
+import { BaseRequestOptions, Http } from '@angular/http';
+import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs/Observable';
+&nbsp;
+declare var googletag: any;
+declare var isAdBlockEnabled: string;
+declare var adsFunction: any;
+&nbsp;
+@Component({
+    selector: 'ad-dfp',
+    template: `
+        &lt;div class="adContainer" style="text-align: center;"&gt;
+            &lt;div class={{type}}&gt;
+&nbsp;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    `
+})
+export class AdDFPComponent implements OnInit {
+&nbsp;
+    @Input() type: string;
+&nbsp;
+    public settings: any;
+&nbsp;
+<span class="fstat-no" title="function not covered" >    constructor(</span>
+        private <span class="cstat-no" title="statement not covered" >_elementRef: ElementRef,</span>
+        private <span class="cstat-no" title="statement not covered" >_http: Http)</span> { }
+    /**
+     * Called when the component is loading
+     */
+<span class="fstat-no" title="function not covered" >    ngOnInit() {</span>
+<span class="cstat-no" title="statement not covered" >        this.getSettings().subscribe(<span class="fstat-no" title="function not covered" >data </span>=&gt; {</span>
+<span class="cstat-no" title="statement not covered" >            this.settings = data;</span>
+<span class="cstat-no" title="statement not covered" >            this.defineAds(this.settings, googletag);</span>
+<span class="cstat-no" title="statement not covered" >            let tag: number = this.getTag(this.type, this.settings);</span>
+<span class="cstat-no" title="statement not covered" >            if (this.settings.adBlockDetector) {</span>
+<span class="cstat-no" title="statement not covered" >                this.detectAdBlocker();</span>
+            }
+<span class="cstat-no" title="statement not covered" >            if (this.type === "hidden_inter") {</span>
+&nbsp;
+            } else {
+<span class="cstat-no" title="statement not covered" >                this.displayAd(tag);</span>
+            }
+        });
+    }
+    /**
+     * Detects if an ad blocker is used
+     * @see http://stackoverflow.com/questions/4869154/how-to-detect-adblock-on-my-website
+     * 
+     */
+<span class="fstat-no" title="function not covered" >    detectAdBlocker(): void {</span>
+<span class="cstat-no" title="statement not covered" >        if (typeof isAdBlockEnabled === 'undefined') {</span>
+<span class="cstat-no" title="statement not covered" >            this.showDetectedAdBlocker();</span>
+        }
+    }
+    /**
+     * Show a ionic button asking the user to whitelist this siteweb.
+     * 
+     * If user clicks on "Do not remind me !" this button won't show up again on this device.
+     */
+<span class="fstat-no" title="function not covered" >    showDetectedAdBlocker(): void {</span>
+<span class="cstat-no" title="statement not covered" >        if (typeof adsFunction !== 'undefined') {</span>
+<span class="cstat-no" title="statement not covered" >            adsFunction();</span>
+        }
+    }
+    /**
+     * This function returns the google tag needed corresponding to the type of the ad
+     * @param type The type of ad wanted to be displayed 
+     * 
+     * @return tag The tag corresponding to the type of ad
+     * 
+     */
+<span class="fstat-no" title="function not covered" >    getTag(type: string, settings: any)</span>: number {
+<span class="cstat-no" title="statement not covered" >        let tag: number;</span>
+<span class="cstat-no" title="statement not covered" >        if (type == "banner") {</span>
+<span class="cstat-no" title="statement not covered" >            tag = settings.tags.banner;</span>
+        } else <span class="cstat-no" title="statement not covered" >if (type == "inter" || type == "hidden_inter") {</span>
+<span class="cstat-no" title="statement not covered" >            tag = settings.tags.inter;</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >            tag = 0</span>
+        }
+<span class="cstat-no" title="statement not covered" >        return tag;</span>
+    }
+&nbsp;
+    /**
+     * Displays an ad
+     * @param tag The tag of the ad wanted to be displayed
+     */
+<span class="fstat-no" title="function not covered" >    displayAd(tag: number)</span>: void {
+<span class="cstat-no" title="statement not covered" >        document.getElementsByClassName(this.type)[0].setAttribute("id", "div-gpt-ad-" + tag + "-0");</span>
+<span class="cstat-no" title="statement not covered" >        if (googletag &amp;&amp; googletag.apiReady) {</span>
+<span class="cstat-no" title="statement not covered" >            googletag.cmd.push(<span class="fstat-no" title="function not covered" >function (result: any)</span> {</span>
+<span class="cstat-no" title="statement not covered" >                googletag.display('div-gpt-ad-' + tag + '-0');</span>
+            });
+        }
+    }
+&nbsp;
+    /**
+     * Define Slots used for the ads to display
+     * @param googletagSettings User's settings concerning ads (tag is different for each school)
+     * @param googletag The googletag declared by google's script included in index.html
+     */
+<span class="fstat-no" title="function not covered" >    defineAds(settings: any, googletag: any)</span>: void {
+<span class="cstat-no" title="statement not covered" >        var googletag = googletag || {};</span>
+<span class="cstat-no" title="statement not covered" >        googletag.cmd = googletag.cmd || [];</span>
+<span class="cstat-no" title="statement not covered" >        var gptAdSlots = [];</span>
+<span class="cstat-no" title="statement not covered" >        googletag.cmd.push(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >            var mappingBanner = googletag.sizeMapping().</span>
+                addSize([320, 400], [settings.mapping.mobile.width, settings.mapping.mobile.height]).
+                addSize([728, 400], [settings.mapping.tablet.width, settings.mapping.tablet.height]).
+                addSize([1024, 400], [settings.mapping.desktop.width, settings.mapping.desktop.height]).
+                build();
+<span class="cstat-no" title="statement not covered" >            if (settings.ID.banner !== 0) {</span>
+<span class="cstat-no" title="statement not covered" >                gptAdSlots[0] = googletag.defineSlot(`/${settings.network}/${settings.ID.banner}`, [[settings.mapping.mobile.width, settings.mapping.mobile.height], [settings.mapping.tablet.width, settings.mapping.tablet.height], [settings.mapping.desktop.width, settings.mapping.desktop.height]], `div-gpt-ad-${settings.tags.banner}-0`).</span>
+                    defineSizeMapping(mappingBanner).
+                    addService(googletag.pubads());
+            }
+<span class="cstat-no" title="statement not covered" >            if (settings.ID.inter !== 0) {</span>
+<span class="cstat-no" title="statement not covered" >                gptAdSlots[1] = googletag.defineOutOfPageSlot(`/${settings.network}/${settings.ID.inter}`, `div-gpt-ad-${settings.tags.inter}-0`)</span>
+                    .addService(googletag.pubads());
+            }
+<span class="cstat-no" title="statement not covered" >            googletag.pubads().enableSingleRequest();</span>
+<span class="cstat-no" title="statement not covered" >            googletag.pubads().collapseEmptyDivs();</span>
+<span class="cstat-no" title="statement not covered" >            googletag.enableServices();</span>
+        });
+    }
+    /**
+     * Returns an observable by Get HTTP protocol on a json file
+     * The returned observable can get data from a json file
+     * 
+     * @return Observable to get data from settings.json
+     */
+<span class="fstat-no" title="function not covered" >    getSettings(): Observable&lt;any&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        return this._http.get('./assets/settings/settings.json')</span>
+            .map(<span class="fstat-no" title="function not covered" >response </span>=&gt; <span class="cstat-no" title="statement not covered" >response.json())</span>;
+    }
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu May 18 2017 23:10:06 GMT+0200 (CEST)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
