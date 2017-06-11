@@ -1,4 +1,4 @@
-import { Input, Component, OnInit, ElementRef } from '@angular/core';
+import { Input, Component, OnInit } from '@angular/core';
 import { BaseRequestOptions, Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
@@ -23,9 +23,7 @@ export class AdDFPComponent implements OnInit {
 
     public settings: any;
 
-    constructor(
-        private _elementRef: ElementRef,
-        private _http: Http) { }
+    constructor(private _http: Http) { }
     /**
      * Called when the component is loading
      */
