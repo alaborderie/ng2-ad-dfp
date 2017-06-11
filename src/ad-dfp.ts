@@ -35,9 +35,7 @@ export class AdDFPComponent implements OnInit {
             if (this.settings.adBlockDetector) {
                 this.detectAdBlocker();
             }
-            if (this.type === "hidden_inter") {
-
-            } else {
+            if (this.type != "hidden_inter") {
                 this.displayAd(tag);
             }
         });
