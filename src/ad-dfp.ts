@@ -94,7 +94,7 @@ export class AdDFPComponent implements OnInit {
 
     /**
      * Define Slots used for the ads to display
-     * @param googletagSettings User's settings concerning ads (tag is different for each school)
+     * @param settings Settings set by JSON file
      * @param googletag The googletag declared by google's script included in index.html
      */
     defineAds(settings: any, googletag: any): void {
