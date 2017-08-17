@@ -1,7 +1,6 @@
 import { Input, Component, OnInit } from '@angular/core';
 import { BaseRequestOptions, Http } from '@angular/http';
-import 'rxjs/add/operator/map';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs/Rx';
 
 declare var googletag: any;
 declare var isAdBlockEnabled: string;
