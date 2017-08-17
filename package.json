@@ -91,5 +91,5 @@
   "scripts": {
     "build": "rm -rf bundle/ && ngc"
   },
-  "version": "1.2.6"
+  "version": "1.2.7"
 }
