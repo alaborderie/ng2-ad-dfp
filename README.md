@@ -11,6 +11,11 @@ Check my [article](https://medium.com/@antoine.laborderie/doubleclick-ads-in-ang
 
 ## Installation
 
+_____
+You should first include in your `index.html` file's headers this script:
+`<script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>`
+_____
+
 To install this library, run:
 
 ```bash

@@ -10,7 +10,7 @@ declare var adsFunction: any;
     selector: 'ad-dfp',
     template: `
         <div class="adContainer" style="text-align: center;">
-            <div class={{type}}>
+            <div class={{type}} >
 
             </div>
         </div>
@@ -28,7 +28,7 @@ export class AdDFPComponent implements OnInit {
      */
     ngOnInit() {
         this.getSettings().subscribe(data => {
-            this.settings = data;
+            this.settings = data.json(); //.json() because not using .map()
             this.defineAds(this.settings, googletag);
             let tag: number = this.getTag(this.type, this.settings);
             if (this.settings.adBlockDetector) {
@@ -84,11 +84,12 @@ export class AdDFPComponent implements OnInit {
      */
     displayAd(tag: number): void {
         document.getElementsByClassName(this.type)[0].setAttribute("id", "div-gpt-ad-" + tag + "-0");
-        if (googletag && googletag.apiReady) {
-            googletag.cmd.push(function (result: any) {
-                googletag.display('div-gpt-ad-' + tag + '-0');
-            });
-        }
+        /* if is always false using AoT */
+        // if (googletag && googletag.apiReady) { 
+        googletag.cmd.push(function (result: any) {
+            googletag.display('div-gpt-ad-' + tag + '-0');
+        });
+        // }
     }
 
     /**
@@ -128,6 +129,7 @@ export class AdDFPComponent implements OnInit {
      */
     getSettings(): Observable<any> {
         return this._http.get('assets/settings/settings.json')
-            .map(response => response.json());
+        /* Throws error using es5 */
+        // .map(response => response.json());
     }
 }
