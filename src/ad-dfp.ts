@@ -28,6 +28,7 @@ export class AdDFPComponent implements OnInit {
      */
     ngOnInit() {
         this.getSettings().subscribe(data => {
+            var googletag = googletag || {};
             this.settings = data.json(); //.json() because not using .map()
             this.defineAds(this.settings, googletag);
             let tag: number = this.getTag(this.type, this.settings);
@@ -83,6 +84,7 @@ export class AdDFPComponent implements OnInit {
      * @param tag The tag of the ad wanted to be displayed
      */
     displayAd(tag: number): void {
+        var googletag = googletag || {};
         document.getElementsByClassName(this.type)[0].setAttribute("id", "div-gpt-ad-" + tag + "-0");
         /* if is always false using AoT */
         // if (googletag && googletag.apiReady) { 
