@@ -28,15 +28,16 @@ export class AdDFPComponent implements OnInit {
      */
     ngOnInit() {
         this.getSettings().subscribe(data => {
-            var googletag = googletag || {};
-            this.settings = data.json(); //.json() because not using .map()
-            this.defineAds(this.settings, googletag);
-            let tag: number = this.getTag(this.type, this.settings);
-            if (this.settings.adBlockDetector) {
-                this.detectAdBlocker();
-            }
-            if (this.type != "hidden_inter") {
-                this.displayAd(tag);
+            if (typeof googletag !== typeof undefined) {
+                this.settings = data.json(); //.json() because not using .map()
+                this.defineAds(this.settings, googletag);
+                let tag: number = this.getTag(this.type, this.settings);
+                if (this.settings.adBlockDetector) {
+                    this.detectAdBlocker();
+                }
+                if (this.type != "hidden_inter") {
+                    this.displayAd(tag);
+                }
             }
         });
     }
@@ -84,10 +85,9 @@ export class AdDFPComponent implements OnInit {
      * @param tag The tag of the ad wanted to be displayed
      */
     displayAd(tag: number): void {
-        var googletag = googletag || {};
         document.getElementsByClassName(this.type)[0].setAttribute("id", "div-gpt-ad-" + tag + "-0");
         /* if is always false using AoT */
-        // if (googletag && googletag.apiReady) { 
+        // if (googletag && googletag.apiReady) {
         googletag.cmd.push(function (result: any) {
             googletag.display('div-gpt-ad-' + tag + '-0');
         });
@@ -100,8 +100,6 @@ export class AdDFPComponent implements OnInit {
      * @param googletag The googletag declared by google's script included in index.html
      */
     defineAds(settings: any, googletag: any): void {
-        var googletag = googletag || {};
-        googletag.cmd = googletag.cmd || [];
         var gptAdSlots = [];
         googletag.cmd.push(function () {
             var mappingBanner = googletag.sizeMapping().
