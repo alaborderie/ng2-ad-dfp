@@ -1,5 +1,9 @@
 # Angular 2 Component
 
+-----
+# DEPRECATED: PLEASE USE [ngx-ad-dfp](https://github.com/alaborderie/ngx-ad-dfp)
+-----
+
 This component creates and displays ads for DoubleClick for Publishers in your Angular2 project.
 All you have to do is install it, include it in your app.module.ts, define your settings in a json file, and insert a ` <ad-dfp [type]="'banner'"></ad-dfp> ` in any page.html you want.
 
